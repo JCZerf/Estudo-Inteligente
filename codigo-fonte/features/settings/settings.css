@@ -1,0 +1,355 @@
+/* 
+ * Estilos para a página de configurações
+ * Define a aparência visual dos controles e seções de configurações do sistema
+ */
+
+/* 
+ * Seções de configurações
+ * Estiliza os containers que agrupam configurações relacionadas
+ */
+.settings-section {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background-color: var(--section-bg);
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* 
+ * Títulos das seções
+ * Estiliza os cabeçalhos de cada grupo de configurações
+ */
+.settings-section h2 {
+    margin-bottom: 1.5rem;
+    color: var(--highlight-color);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* 
+ * Ícones nos títulos
+ * Ajusta o tamanho dos ícones nos cabeçalhos das seções
+ */
+.settings-section h2 i {
+    font-size: 1.2em;
+}
+
+/* 
+ * Item de configuração individual
+ * Define o layout para itens com toggle switch
+ */
+.setting-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 1rem;
+}
+
+/* 
+ * Linha de configurações
+ * Define o layout para grupos de configurações em linha
+ */
+.setting-row {
+    display: flex;
+    gap: 20px;
+    margin-top: 1rem;
+}
+
+/* 
+ * Grupo de configuração
+ * Container para label e controle de configuração
+ */
+.setting-group {
+    flex: 1;
+}
+
+/* 
+ * Labels dos controles
+ * Estiliza as etiquetas dos campos de configuração
+ */
+.setting-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+/* 
+ * Controles de seleção e tempo
+ * Estiliza os selects e inputs de tempo nas configurações
+ */
+.setting-select, .setting-time {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+/* 
+ * Zona de Risco
+ * Estiliza a seção de ações perigosas com destaque visual
+ */
+.danger-zone {
+    border: 2px solid #e74c3c;
+    position: relative;
+}
+
+/* 
+ * Título da Zona de Risco
+ * Destaca o título da seção de ações perigosas em vermelho
+ */
+.danger-zone h2 {
+    color: #e74c3c !important;
+}
+
+/* 
+ * Aviso de perigo
+ * Estiliza o banner de aviso sobre ações irreversíveis
+ */
+.danger-notice {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: rgba(231, 76, 60, 0.1);
+    padding: 1rem;
+    border-radius: 6px;
+    margin-bottom: 1.5rem;
+}
+
+/* 
+ * Ícone de aviso
+ * Estiliza o ícone de exclamação no aviso de perigo
+ */
+.danger-notice i {
+    color: #e74c3c;
+    font-size: 1.5rem;
+}
+
+/* 
+ * Container de ações perigosas
+ * Define o layout para o grupo de ações de risco
+ */
+.danger-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* 
+ * Ação perigosa individual
+ * Estiliza cada grupo de ações relacionadas na zona de risco
+ */
+.danger-action {
+    padding: 1rem;
+    border-radius: 6px;
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* 
+ * Título da ação perigosa
+ * Estiliza os subtítulos dentro da zona de risco
+ */
+.danger-action h3 {
+    margin-bottom: 1rem;
+    color: var(--text-color);
+}
+
+/* 
+ * Container de botões de ação
+ * Define o layout para grupos de botões relacionados
+ */
+.action-buttons {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+/* 
+ * Ação crítica
+ * Destaca visualmente as ações mais perigosas
+ */
+.danger-action.critical {
+    background-color: rgba(231, 76, 60, 0.1);
+    border: 1px dashed #e74c3c;
+}
+
+/* 
+ * Texto de aviso
+ * Estiliza mensagens de alerta sobre ações críticas
+ */
+.warning-text {
+    margin-top: 0.5rem;
+    font-size: 0.9em;
+    color: #e74c3c;
+}
+
+/* 
+ * Switch personalizado
+ * Container para o toggle switch
+ */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 24px;
+}
+
+/* 
+ * Input do switch
+ * Oculta o checkbox nativo mantendo a funcionalidade
+ */
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* 
+ * Slider do switch
+ * Estiliza a parte visual do toggle switch
+ */
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+}
+
+/* 
+ * Botão do slider
+ * Estiliza o círculo móvel do toggle switch
+ */
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+}
+
+/* 
+ * Estado ativo do switch
+ * Muda a cor de fundo quando o switch está ativado
+ */
+input:checked + .slider {
+    background-color: var(--highlight-color);
+}
+
+/* 
+ * Movimento do botão do switch
+ * Desloca o círculo quando o switch está ativado
+ */
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+/* 
+ * Slider arredondado
+ * Aplica bordas arredondadas ao slider
+ */
+.slider.round {
+    border-radius: 24px;
+}
+
+/* 
+ * Botão arredondado
+ * Aplica formato circular ao botão do slider
+ */
+.slider.round:before {
+    border-radius: 50%;
+}
+
+/* 
+ * Notificação Toast
+ * Estiliza as notificações temporárias de feedback
+ */
+.toast {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 12px 24px;
+    background-color: #333;
+    color: white;
+    border-radius: 5px;
+    z-index: 10000;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* 
+ * Toast visível
+ * Controla a visibilidade da notificação toast
+ */
+.toast.show {
+    opacity: 1;
+}
+
+/* 
+ * Responsividade para telas menores
+ * Ajusta o layout para dispositivos móveis
+ */
+@media (max-width: 768px) {
+    /* Empilha os controles em coluna em telas pequenas */
+    .setting-row {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    /* Empilha os botões de ação em coluna */
+    .action-buttons {
+        flex-direction: column;
+    }
+    
+    /* Ajusta a largura dos botões para ocupar toda a largura disponível */
+    .action-buttons button {
+        width: 100%;
+    }
+}
+
+
+
+/* Ajuste para tornar o botão "Acessar Perfil" azul */
+/* Aplica a cor de destaque aos botões padrão dentro das actions, 
+   mas permite overrides para botões de perigo (.btn-danger) */
+.settings-section .action-buttons button:not(.btn-danger) {
+    background-color: var(--highlight-color);
+    color: white; /* Assumindo que branco contrasta bem com a cor de destaque */
+    border: 1px solid var(--highlight-color);
+    transition: background-color 0.3s ease, border-color 0.3s ease, filter 0.3s ease;
+}
+
+.settings-section .action-buttons button:not(.btn-danger):hover {
+    filter: brightness(90%); /* Escurece um pouco no hover */
+    border-color: var(--highlight-color);
+}
+
+/* Garante contraste no tema escuro se a cor de destaque for clara (ajuste se necessário) */
+/* [data-theme="dark"] .settings-section .action-buttons button:not(.btn-danger) {
+    color: #111; 
+} */
+
+/* Mantém botões de perigo com sua cor específica */
+.settings-section .action-buttons button.btn-danger {
+    background-color: #e74c3c;
+    border-color: #e74c3c;
+    color: white;
+}
+
+.settings-section .action-buttons button.btn-danger:hover {
+    filter: brightness(90%);
+}
+
